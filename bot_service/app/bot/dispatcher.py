@@ -64,13 +64,19 @@ from app.core.config import settings
 # else:
 #     print("No proxy configured, starting directly")
 
+from aiogram import Bot, Dispatcher
+from aiogram.client.session.aiohttp import AiohttpSession
+from app.core.config import settings
+from app.bot.handlers import router
+
 # Создаём сессию
 session = AiohttpSession()
 
 # Создаём бота
 bot = Bot(token=settings.telegram_bot_token, session=session)
 
-# Создаём диспетчер
+# Создаём диспетчер и подключаем роутер
 dp = Dispatcher()
+dp.include_router(router)
 
-print("Bot dispatcher initialized")
+print("Bot dispatcher initialized with handlers")
