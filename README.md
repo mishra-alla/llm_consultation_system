@@ -52,26 +52,7 @@ llm_consultation_system/
         ├── auth_service_test_results.txt
         └── auth_tests_pass.png
 ```
-## Архитектура проекта
-```
-┌─────────────┐ ┌─────────────┐ ┌─────────────┐
-│ Auth │ │ Bot │ │ Celery │
-│ Service │────▶│ Service │────▶│ Worker │
-│ (8000) │ JWT │ (aiogram) │ │ │
-└─────────────┘ └─────────────┘ └──────┬──────┘
-│ │ │
-│ ▼ ▼
-│ ┌─────────────┐ ┌─────────────┐
-│ │ Redis │ │ RabbitMQ │
-│ │ (токены) │ │ (очереди) │
-│ └─────────────┘ └─────────────┘
-│
-▼
-┌─────────────┐
-│ SQLite │
-│ (пользователи)│
-└─────────────┘
-```
+
 ## Установка и запуск
 docker-compose up --build
 #### 1. Клонирование репозитория
@@ -162,5 +143,17 @@ uv run python run_bot.py
 ### RabbitMQ
 ![RabbitMQ Queues](screenshots/rabbitmq/01_queues.png)
 
+## Тестирование
+Для проверки проекта использовалось автоматизированное тестирование.
+> Результаты можно посмотреть: /screenshots/tests/
+
+Пример запуска тестов:
+```
+cd ../auth_service
+uv run pytest
+
+cd ../bot_service
+uv run pytest
+```
 ## Автор: 
 **Алла Мишра: mishra-alla**
