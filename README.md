@@ -16,21 +16,32 @@
 
 ## Структура проекта:
 ```
-final_project/
+llm_consultation_system/
+├── README.md
+├── .gitignore
 ├── auth_service/
 │   ├── app/
 │   ├── tests/
-│   ├── .env
 │   ├── pyproject.toml
-│   └── pytest.ini
+│   ├── pytest.ini
+│   └── uv.lock
 ├── bot_service/
 │   ├── app/
 │   ├── tests/
-│   ├── .env
 │   ├── pyproject.toml
-│   └── pytest.ini
-├── docker-compose.yml
-└── README.md
+│   └── uv.lock
+└── screenshots/
+    ├── auth_service/
+    │   ├── 01_register_success.png
+    │   ├── 02_login_success.png
+    │   └── 03_me_success.png
+    ├── bot_service/
+    │   └── (пусто пока)
+    ├── rabbitmq/
+    │   └── (пусто пока)
+    └── tests/
+        ├── auth_service_test_results.txt
+        └── auth_tests_pass.png
 ```
 ## Архитектура проекта
 - **Auth Service**: регистрация, логин, выдача JWT
