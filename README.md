@@ -19,6 +19,7 @@
 llm_consultation_system/
 ├── README.md
 ├── .gitignore
+├── docker-compose.yml
 ├── auth_service/
 │   ├── app/
 │   ├── tests/
@@ -36,9 +37,9 @@ llm_consultation_system/
     │   ├── 02_login_success.png
     │   └── 03_me_success.png
     ├── bot_service/
-    │   └── (пусто пока)
+    │   └── 01_bot_chat.png 
     ├── rabbitmq/
-    │   └── (пусто пока)
+    │   └── 01_messages_rates.png
     └── tests/
         ├── auth_service_test_results.txt
         └── auth_tests_pass.png
