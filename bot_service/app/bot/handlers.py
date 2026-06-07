@@ -10,7 +10,7 @@ router = Router()
 @router.message(Command("start"))
 async def start_command(message: types.Message):
     await message.answer(
-        "👋 Вас приветствует Кузя!\n\n"
+        "Вас приветствует Кузя!\n\n"
         "Чтобы со мной поговорить - надо авторизоваться:\n"
             "1. Зарегистрируйтесь в Auth Service Swagger\n"
             "2. Получите JWT-токен через /auth/login\n"
@@ -54,4 +54,4 @@ async def ask_llm(message: types.Message):
         return
     
     llm_request.delay(message.from_user.id, message.text)
-    await message.answer("Запрос отправлен ИИ - скоро вернусь с ответом")
+    await message.answer("Скоро вернусь с ответом")
