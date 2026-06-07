@@ -39,3 +39,14 @@ final_project/
 
 ## Запуск
 docker-compose up --build
+
+## Демонстрация работы Auth Service
+
+### 1. Регистрация пользователя
+![Регистрация](screenshots/auth_service/01_register_success.png)
+
+### 2. Получение JWT токена
+![Логин](screenshots/auth_service/02_login_success.png)
+
+### 3. Проверка авторизации (/auth/me)
+![Профиль пользователя](screenshots/auth_service/03_me_success.png)

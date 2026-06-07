@@ -13,7 +13,6 @@ async def register(
     data: RegisterRequest,
     uc: AuthUsecase = Depends(get_auth_uc)
 ):
-    """Регистрация нового пользователя"""
     result = await uc.register(data.email, data.password)
     return result
 
@@ -23,7 +22,6 @@ async def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
     uc: AuthUsecase = Depends(get_auth_uc)
 ):
-    """Вход в систему, получение JWT токена"""
     token = await uc.login(form_data.username, form_data.password)
     return TokenResponse(access_token=token)
 
@@ -33,5 +31,4 @@ async def get_me(
     user_id: int = Depends(get_current_user_id),
     uc: AuthUsecase = Depends(get_auth_uc)
 ):
-    """Получение информации о текущем пользователе (требует токен)"""
     return await uc.get_current_user(user_id)

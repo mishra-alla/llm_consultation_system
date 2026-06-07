@@ -14,7 +14,7 @@ class AuthUsecase:
 
     async def register(self, email: str, password: str) -> dict:
         """Регистрация нового пользователя"""
-        # Проверяем, не существует ли пользователь
+        # Проверяем - существует ли пользователь
         existing = await self.user_repo.get_by_email(email)
         if existing:
             raise UserAlreadyExistsError()
@@ -27,7 +27,7 @@ class AuthUsecase:
             "id": user.id,
             "email": user.email,
             "role": user.role,
-            "created_at": user.created_at
+            "created_at": user.created_at.isoformat() if user.created_at else None
         }
 
     async def login(self, email: str, password: str) -> str:
@@ -54,5 +54,5 @@ class AuthUsecase:
             "id": user.id,
             "email": user.email,
             "role": user.role,
-            "created_at": user.created_at
+            "created_at": user.created_at.isoformat() if user.created_at else None
         }
