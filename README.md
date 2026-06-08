@@ -49,8 +49,10 @@ llm_consultation_system/
     ├── rabbitmq/
     │   └── 01_queues.png
     └── tests/
-        ├── auth_service_test_results.txt
-        └── auth_tests_pass.png
+        ├── auth_service_test_results.txt   # текстовый вывод pytest
+        ├── auth_service_coverage.txt       # покрытие кода
+        ├── auth_tests_pass.png             # скриншот 7 passed (Auth)
+        └── bot_tests_pass.png              # скриншот 3 passed (Bot)
 ```
 
 ## Установка и запуск
